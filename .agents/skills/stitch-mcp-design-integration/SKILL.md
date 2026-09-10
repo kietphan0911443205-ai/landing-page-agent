@@ -3,8 +3,11 @@ name: stitch-mcp-design-integration
 description: Use the project-scoped Google Stitch MCP to create, inspect and export UI design context, then turn it into a traceable AIBOS design contract before implementation.
 metadata:
   owner: AIBOS UI/UX
-  version: 1.1.0
+  version: 1.2.0
   status: active
+  change_history:
+    - version: 1.2.0
+      change: "Chuẩn hóa OAuth qua Codex UI/setup wizard và loại bỏ hướng dẫn đăng nhập MCP đã lỗi thời."
 ---
 
 # Stitch MCP Design Integration
@@ -23,7 +26,7 @@ Dùng khi task yêu cầu tạo UI bằng Stitch, đọc Stitch project/screen, 
 - Authentication dùng OAuth của Codex; credential không được ghi vào repository.
 - Mặc định khách hàng không cần tạo, gửi link hoặc cung cấp Stitch project/screen ID; sau khi requirement được duyệt và OAuth thành công, agent tự tạo project mới cho customer job.
 - Chỉ yêu cầu project/screen ID khi khách hàng chủ động chọn phương án dùng project Stitch có sẵn.
-- Nếu chưa authenticated, dừng ở `blocked` và hướng dẫn chạy `codex mcp login stitch`.
+- Nếu chưa authenticated, dừng ở `blocked_oauth` và hướng dẫn khách hàng mở Codex Settings → Plugins → MCPs → Stitch → Authenticate/Connect Google OAuth. Với máy chưa cài connector, operator có thể chạy setup wizard `npx @_davideast/stitch-mcp init --client codex --transport stdio`, sau đó khởi động lại Codex. Không dùng lệnh đăng nhập MCP cũ.
 - Khi request đã chọn Stitch, không được âm thầm thay thế bằng HTML/CSS/JavaScript hoặc tuyên bố không dùng Stitch. Nếu MCP không khả dụng, báo rõ `blocked_oauth` hoặc `blocked_external_service` và dừng trước bước thiết kế.
 
 ## Quy trình bắt buộc
