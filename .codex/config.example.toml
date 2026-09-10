@@ -1,0 +1,13 @@
+# Copy the [mcp_servers.stitch] blocks to the user's Codex config only after
+# running the Stitch OAuth setup wizard. Do not commit personal project IDs or
+# credentials to this repository.
+
+[mcp_servers.stitch]
+command = "npx"
+args = ["@_davideast/stitch-mcp", "proxy"]
+startup_timeout_sec = 30
+tool_timeout_sec = 120
+default_tools_approval_mode = "prompt"
+
+[mcp_servers.stitch.env]
+STITCH_PROJECT_ID = "YOUR_GOOGLE_CLOUD_PROJECT_ID"

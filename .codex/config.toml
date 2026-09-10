@@ -1,9 +1,0 @@
-# Project-scoped Codex configuration for the Landing Page Agent.
-# This file contains no credential. OAuth is completed by the user in Codex.
-
-[mcp_servers.stitch]
-url = "https://stitch.googleapis.com/mcp"
-enabled = true
-startup_timeout_sec = 30
-tool_timeout_sec = 120
-default_tools_approval_mode = "prompt"
