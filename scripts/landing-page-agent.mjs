@@ -140,7 +140,7 @@ function nextAction(job) {
     ba_in_progress: "BA hỏi khách hàng về identity, audience, CTA, content, privacy, analytics và môi trường.",
     requirement_pending_customer: "Trình requirement summary cho khách hàng duyệt; không tự chuyển gate.",
     requirement_approved: "Chuyển sang bước xác thực Stitch của đúng khách hàng.",
-    stitch_auth_pending: "Khách hàng xác thực Stitch; agent chỉ dùng project_id đã được xác nhận.",
+    stitch_auth_pending: "Khách hàng xác thực Stitch; sau khi OAuth connected, agent tự gọi create_project cho customer job.",
     design_pending_customer: "Trình design handoff để khách hàng duyệt.",
     design_approved: "Frontend/Backend triển khai vertical slice trong workspace riêng.",
     implementation_in_progress: "Hoàn thiện build local và chuyển QA.",

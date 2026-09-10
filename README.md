@@ -16,6 +16,8 @@ BA hỏi khách hàng
 
 Gói này chứa workflow, skill, contract, state-machine guard và công cụ đánh giá. Nó không chứa landing page mẫu, database local, lead thật, credential, secret, Stitch project, Vercel project hoặc thông tin cá nhân.
 
+Đây không phải là một frontend scaffold. Khi người dùng yêu cầu tạo landing page, agent phải bắt đầu bằng BA; không được tự dựng HTML/CSS/JavaScript trong package này để thay thế bước Stitch.
+
 Agent không tự nhận mật khẩu, OTP, API key hay secret trong chat. Khách hàng phải tự xác thực OAuth trong giao diện của provider và duyệt các external write trước khi Stitch/Vercel được sử dụng.
 
 ## Bắt đầu nhanh
