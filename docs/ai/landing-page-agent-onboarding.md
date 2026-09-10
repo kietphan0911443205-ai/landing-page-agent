@@ -6,7 +6,7 @@ Bạn chỉ cần:
 
 1. Trả lời câu hỏi BA về sản phẩm, khách hàng mục tiêu, nội dung, CTA, form, privacy, analytics và ngôn ngữ.
 2. Duyệt bản requirement và design handoff.
-3. Xác thực Google/Stitch khi agent yêu cầu.
+3. Xác thực Google/Stitch khi agent yêu cầu; agent sẽ tự tạo Stitch project mới sau khi được cấp quyền.
 4. Xác thực Vercel và chọn đúng personal account/team/project khi agent yêu cầu.
 5. Duyệt lần cuối trước khi phát hành production.
 
@@ -22,7 +22,7 @@ Bạn không cần chạy command nội bộ, tự viết code hoặc gửi mậ
 
 ## Thông tin không được dùng lại
 
-Mỗi khách hàng có resource scope riêng: Stitch project, Vercel project/scope, database target, secret reference, domain và release version. Agent không được lấy lại những giá trị này từ job trước.
+Mỗi khách hàng có resource scope riêng: Stitch project do agent tạo sau OAuth (hoặc project có sẵn do khách hàng chủ động chọn), Vercel project/scope, database target, secret reference, domain và release version. Agent không được lấy lại những giá trị này từ job trước.
 
 ## Khi nào cần dừng để hỏi bạn
 

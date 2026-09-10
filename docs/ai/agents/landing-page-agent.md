@@ -47,7 +47,7 @@ Landing Page Agent giữ task graph, dependency, handoff và evidence; không t�
 Khách hàng không phải tự chạy command, cấu hình Docker/VPS hay tự kiểm tra kỹ thuật. Agent thực hiện task graph và chỉ đưa ra các checkpoint cần quyết định:
 
 - Xác nhận requirement, CTA, nội dung, claim, locale và thiết kế.
-- Xác thực OAuth hoặc kết nối hosting khi hệ thống yêu cầu; credential phải đi qua secret/environment manager.
+- Xác thực OAuth hoặc kết nối hosting khi hệ thống yêu cầu; với Stitch, khách hàng chỉ xác thực OAuth và agent tự tạo project mới theo customer job; credential phải đi qua secret/environment manager.
 - Chọn `local`, `staging` hoặc `production`.
 - Duyệt phát hành production ở approval gate cuối.
 
@@ -96,7 +96,7 @@ Runtime guard và public-config renderer tương ứng là `scripts/landing-page
 
 Landing Page Agent được bán như một dịch vụ tạo landing page tự động, vì vậy mỗi lần chạy phải được coi là một `customer_job` độc lập. Contract chi tiết nằm tại `docs/ai/landing-page-agent-productization.md` và mẫu input tại `docs/ai/contracts/landing-page-customer-job.yaml`.
 
-Agent phải tạo job ID opaque, tách source workspace, Stitch project, Vercel project, database target và secret scope của từng khách hàng. Không được dùng lại resource hoặc dữ liệu cá nhân của job trước. Các giá trị brand, controller, contact, pricing, claim, analytics và locale chỉ được lấy từ BA-confirmed input; thiếu dữ liệu thì hỏi khách hàng hoặc mở blocker.
+Agent phải tạo job ID opaque, tách source workspace, Stitch project, Vercel project, database target và secret scope của từng khách hàng. Sau OAuth và requirement approval, agent mặc định tự tạo Stitch project mới; không yêu cầu khách hàng tạo hoặc gửi link. Không được dùng lại resource hoặc dữ liệu cá nhân của job trước. Các giá trị brand, controller, contact, pricing, claim, analytics và locale chỉ được lấy từ BA-confirmed input; thiếu dữ liệu thì hỏi khách hàng hoặc mở blocker.
 
 Trước mọi Stitch export, Vercel project write, environment-variable change hoặc production deploy, agent phải có approval của đúng customer job. OAuth chỉ được dùng để xác thực resource; agent không yêu cầu khách hàng gửi password, OTP hoặc secret vào chat.
 

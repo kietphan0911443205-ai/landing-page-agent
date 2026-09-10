@@ -72,6 +72,8 @@ Nếu dữ liệu pháp lý/privacy chưa được cung cấp, BA tạo draft v�
    - Production để phát hành
 2. Google/Stitch:
    - Khách hàng xác thực tài khoản của mình
+   - Mặc định agent tự tạo Stitch project mới sau khi OAuth thành công; khách hàng không cần gửi project link
+   - Chỉ cung cấp project/screen ID nếu khách hàng chủ động chọn dùng project có sẵn
    - Chưa kết nối, cần hướng dẫn
 3. Vercel:
    - Khách hàng chọn personal scope
@@ -79,7 +81,7 @@ Nếu dữ liệu pháp lý/privacy chưa được cung cấp, BA tạo draft v�
    - Chưa có tài khoản
 4. Domain, database và nơi lưu secret do ai sở hữu?
 
-Agent chỉ mở Stitch/Vercel write hoặc deploy sau khi customer job có đúng resource ID và approval tương ứng.
+Agent chỉ mở Stitch/Vercel write hoặc deploy sau khi customer job có đúng resource scope và approval tương ứng. Với Stitch mode mặc định, resource ID được sinh ra từ thao tác tạo project của agent sau OAuth.
 
 ## Xác nhận cuối của khách hàng
 
@@ -88,4 +90,3 @@ Trước UI/UX: “Tôi xác nhận requirement và cho phép tạo thiết kế
 Trước production: “Tôi xác nhận nội dung, privacy/legal, analytics, domain, môi trường và cho phép phát hành deployment này lên production.”
 
 Hai câu xác nhận trên là hai gate khác nhau; không gộp thành một approval duy nhất.
-

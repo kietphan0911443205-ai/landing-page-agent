@@ -17,6 +17,10 @@ BA hỏi khách hàng
   → Vercel deploy riêng
 ```
 
+### Quy tắc mặc định cho Stitch
+
+Khách hàng chỉ cần xác thực OAuth Google/Stitch và duyệt requirement/design theo các gate. Sau khi OAuth thành công, agent tự tạo Stitch project, design system, screen và variant mới cho `customer_job`; khách hàng không phải tự tạo hoặc gửi link project. Phương án dùng Stitch project có sẵn chỉ được bật khi khách hàng chủ động chọn và xác nhận đúng project/screen ID.
+
 ## Ranh giới sản phẩm
 
 ### Agent chịu trách nhiệm
@@ -46,7 +50,7 @@ Mỗi lần khách hàng yêu cầu tạo landing page phải tạo một `custo
 | `customer_job_id` | ID không chứa PII | Dùng để trace toàn bộ workflow |
 | `customer_display_name` | Tên hiển thị của khách hàng | Chỉ dùng sau khi BA xác nhận |
 | `source_workspace` | Workspace/source riêng | Không trộn với job khác |
-| `stitch_project_id` | Project Stitch của job | Customer xác thực Google/Stitch |
+| `stitch_project_id` | Project Stitch của job | Agent tạo sau khi customer OAuth; chỉ dùng project có sẵn khi customer chủ động chọn |
 | `vercel_project_id` | Project Vercel của job | Customer xác thực Vercel |
 | `database_target` | Neon/database target | Tách Preview và Production |
 | `secret_scope` | Nơi lưu secret | Chỉ reference, không ghi giá trị vào artifact |

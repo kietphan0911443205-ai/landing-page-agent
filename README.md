@@ -33,7 +33,7 @@ Job mới bắt đầu ở trạng thái `queued`. Agent BA phải thu thập v�
 ## Các cổng bắt buộc
 
 - Requirement: khách hàng duyệt CTA, audience, locale, sections, form và privacy.
-- Design: khách hàng xác thực và duyệt đúng Stitch project.
+- Design: khách hàng xác thực OAuth; agent tự tạo Stitch project mới rồi trình thiết kế để khách hàng duyệt.
 - Security: credential, database target, retention và scope được kiểm tra.
 - QA: build, E2E, accessibility, responsive và visual test đạt.
 - Production: khách hàng duyệt cuối; release có version immutable và rollback target.
@@ -50,9 +50,8 @@ Production không được bỏ qua Security, QA, privacy/legal hoặc rollback 
 
 ## OAuth và triển khai
 
-Gói này không chứa connector credential. Mỗi customer job phải có resource riêng hoặc scope/tenant isolation đã được kiểm chứng cho Stitch, Vercel và database. `DATABASE_URL`, `CRON_SECRET` và mọi secret chỉ được inject tại environment manager của môi trường tương ứng.
+Gói này không chứa connector credential. Mỗi customer job phải có resource riêng hoặc scope/tenant isolation đã được kiểm chứng cho Stitch, Vercel và database. Với Stitch, khách hàng không cần tạo hoặc gửi project link; agent tạo project mới sau OAuth và requirement approval. `DATABASE_URL`, `CRON_SECRET` và mọi secret chỉ được inject tại environment manager của môi trường tương ứng.
 
 ## Trạng thái phát hành
 
 Đây là bản mã nguồn agent cần được owner chọn license, review bảo mật và kết nối provider riêng trước khi công khai chính thức. Không dùng dữ liệu hoặc deployment của bản demo để làm evidence cho khách hàng mới.
-
