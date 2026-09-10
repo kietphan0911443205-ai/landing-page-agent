@@ -56,7 +56,7 @@ Gói này không chứa connector credential. Mỗi customer job phải có reso
 
 Khi chạy trong Codex, Stitch MCP phải được bật trong chính task đang thực hiện. Trong customer flow, khách hàng chỉ cần xác thực OAuth trong giao diện Codex; nếu MCP chưa kết nối, agent phải dừng với blocker xác thực/kết nối và không yêu cầu khách hàng chạy CLI, sửa config hoặc gửi project link. Agent không được tự chuyển sang một landing page HTML/CSS thay thế.
 
-Repo có `.codex/config.example.toml` làm mẫu proxy OAuth. File mẫu không tự đăng ký MCP vào Codex và không chứa project ID cá nhân. Operator/host owner có thể dùng setup wizard `npx @_davideast/stitch-mcp init --client codex --transport stdio` hoặc thêm cấu hình proxy vào Codex user config ở bước bootstrap một lần; đây không phải là thao tác khách hàng phải thực hiện trong customer flow. Không dùng HTTP trực tiếp với URL Stitch nếu chưa có API key/bearer token.
+Repo có `.codex/config.example.toml` làm mẫu proxy OAuth. File mẫu không tự đăng ký MCP vào Codex và không chứa project ID cá nhân. Cấu hình thật `.codex/config.toml` bị Git ignore vì chứa project ID riêng của operator. Operator/host owner có thể dùng setup wizard `npx @_davideast/stitch-mcp init --client codex --transport stdio` hoặc thêm cấu hình proxy vào Codex user config ở bước bootstrap một lần; đây không phải là thao tác khách hàng phải thực hiện trong customer flow. Không dùng HTTP trực tiếp với URL Stitch nếu chưa có API key/bearer token.
 
 ## Trạng thái phát hành
 

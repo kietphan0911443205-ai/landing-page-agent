@@ -1,5 +1,6 @@
 node_modules/
 .landing-page/jobs/
+.codex/config.toml
 .env
 .env.*
 !.env.example
@@ -11,4 +12,3 @@ node_modules/
 *.p12
 playwright-report/
 test-results/
-
