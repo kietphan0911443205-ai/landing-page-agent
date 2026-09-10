@@ -1,0 +1,16 @@
+{
+  "name": "landing-page-agent",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "Reusable customer-job workflow and guard for automated landing page delivery.",
+  "scripts": {
+    "test": "node --test scripts/landing-page-agent.test.mjs scripts/render-landing-page-public-env.test.mjs",
+    "evaluate": "node scripts/run-landing-page-agent-evaluation.mjs",
+    "validate:example": "node scripts/validate-landing-page-customer-job.mjs docs/ai/contracts/landing-page-customer-job.example.json"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
+

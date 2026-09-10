@@ -1,0 +1,26 @@
+version: 1
+distribution: public-landing-page-agent
+default_language: vi-VN
+agents:
+  - id: landing-page
+    contract: docs/ai/agents/landing-page-agent.md
+    owner: product-delivery
+    entry_skill: aibos-orchestration-bootstrap
+    supporting_skills:
+      - aibos-ba-requirement-elicitation
+      - aibos-ba-requirement-analysis
+      - aibos-ui-ux
+      - stitch-mcp-design-integration
+      - aibos-frontend-nextjs-blueprint
+      - aibos-backend-fastapi-blueprint
+      - aibos-security-credential-management
+      - aibos-security-database-access
+      - aibos-qa-ui-ux-validation
+      - aibos-qa-e2e-playwright
+      - aibos-qa-launch-readiness
+      - aibos-deployment-environment
+    customer_approval_gates:
+      - requirement
+      - design
+      - production
+

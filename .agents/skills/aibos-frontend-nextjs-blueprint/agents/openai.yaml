@@ -1,0 +1,4 @@
+interface:
+  display_name: "AIBOS Frontend Next.js Blueprint"
+  short_description: "Blueprint Next.js TypeScript reusable"
+  default_prompt: "Dùng blueprint Next.js để phân tích, scaffold hoặc refactor frontend TypeScript theo App Router, server/client boundary, feature, repository, API và deployment contract."

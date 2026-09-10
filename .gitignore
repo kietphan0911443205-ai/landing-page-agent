@@ -1,0 +1,14 @@
+node_modules/
+.landing-page/jobs/
+.env
+.env.*
+!.env.example
+*.db
+*.sqlite
+*.sqlite3
+*.pem
+*.key
+*.p12
+playwright-report/
+test-results/
+

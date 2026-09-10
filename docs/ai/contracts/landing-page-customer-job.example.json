@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "kind": "landing_page_customer_job",
+  "customer_job": {
+    "id": "job_demo_001",
+    "status": "queued",
+    "owner": "customer",
+    "locale": {
+      "default": "vi-VN",
+      "languages": ["vi-VN"],
+      "translation_owner": "customer"
+    }
+  },
+  "business": {
+    "product_name": "Sản phẩm mẫu",
+    "brand_name": "Thương hiệu mẫu",
+    "audience": ["phụ huynh"],
+    "value_proposition": "Giúp khách hàng bắt đầu dễ dàng hơn.",
+    "cta": {
+      "label": "Bắt đầu ngay",
+      "destination": "/setup"
+    },
+    "sections": ["hero", "benefits", "features", "faq", "pricing", "footer"],
+    "pricing": {
+      "display_mode": "pending_customer_decision",
+      "values": []
+    },
+    "proof": {
+      "testimonials": "pending_source_and_approval",
+      "logos": "pending_source_and_approval",
+      "metrics": "pending_source_and_approval"
+    }
+  },
+  "lead_capture": {
+    "enabled": false,
+    "fields": [],
+    "consent": {
+      "required": false,
+      "policy_version": null,
+      "owner": null
+    },
+    "retention": {
+      "maximum_months": null,
+      "deletion_or_anonymization": null
+    },
+    "contact": {
+      "data_controller": null,
+      "privacy_email": null,
+      "public_address": null
+    }
+  },
+  "analytics": {
+    "enabled": false,
+    "vendor": null,
+    "events": [],
+    "consent_dependency": "pending_customer_decision"
+  },
+  "integrations": {
+    "stitch": {
+      "project_id": null,
+      "auth_status": "pending",
+      "customer_approval": false
+    },
+    "vercel": {
+      "project_id": null,
+      "scope": null,
+      "auth_status": "pending",
+      "customer_approval": false
+    },
+    "database": {
+      "provider": null,
+      "environment": null,
+      "target_id": null,
+      "secret_reference": null
+    }
+  },
+  "gates": {
+    "requirement_approved": false,
+    "design_approved": false,
+    "security_passed": false,
+    "qa_passed": false,
+    "production_approved": false
+  },
+  "release": {
+    "environment": "pending_customer_decision",
+    "deployment_id": null,
+    "immutable_version": null,
+    "rollback_target": null
+  }
+}
