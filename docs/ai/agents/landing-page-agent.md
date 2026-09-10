@@ -47,7 +47,7 @@ Landing Page Agent giữ task graph, dependency, handoff và evidence; không t�
 Khách hàng không phải tự chạy command, cấu hình Docker/VPS hay tự kiểm tra kỹ thuật. Agent thực hiện task graph và chỉ đưa ra các checkpoint cần quyết định:
 
 - Xác nhận requirement, CTA, nội dung, claim, locale và thiết kế.
-- Xác thực OAuth hoặc kết nối hosting khi hệ thống yêu cầu; với Stitch, khách hàng chỉ xác thực OAuth và agent tự tạo project mới theo customer job; credential phải đi qua secret/environment manager.
+- Xác thực OAuth hoặc kết nối hosting khi hệ thống yêu cầu; với Stitch, khách hàng chỉ xác thực OAuth và agent tự tạo project mới theo customer job; credential phải đi qua secret/environment manager. Nếu Stitch MCP chưa khả dụng, agent phải báo blocker và dừng, không âm thầm thay thế bằng HTML/CSS/JavaScript.
 - Chọn `local`, `staging` hoặc `production`.
 - Duyệt phát hành production ở approval gate cuối.
 

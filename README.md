@@ -52,6 +52,8 @@ Production không được bỏ qua Security, QA, privacy/legal hoặc rollback 
 
 Gói này không chứa connector credential. Mỗi customer job phải có resource riêng hoặc scope/tenant isolation đã được kiểm chứng cho Stitch, Vercel và database. Với Stitch, khách hàng không cần tạo hoặc gửi project link; agent tạo project mới sau OAuth và requirement approval. `DATABASE_URL`, `CRON_SECRET` và mọi secret chỉ được inject tại environment manager của môi trường tương ứng.
 
+Khi chạy trong Codex, Stitch MCP phải được bật trong chính task đang thực hiện. Nếu MCP chưa kết nối, agent phải dừng với blocker xác thực/kết nối và hướng dẫn OAuth; agent không được tự chuyển sang một landing page HTML/CSS thay thế.
+
 ## Trạng thái phát hành
 
 Đây là bản mã nguồn agent cần được owner chọn license, review bảo mật và kết nối provider riêng trước khi công khai chính thức. Không dùng dữ liệu hoặc deployment của bản demo để làm evidence cho khách hàng mới.

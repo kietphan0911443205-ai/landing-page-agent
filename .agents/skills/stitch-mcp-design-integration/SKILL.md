@@ -24,6 +24,7 @@ Dùng khi task yêu cầu tạo UI bằng Stitch, đọc Stitch project/screen, 
 - Mặc định khách hàng không cần tạo, gửi link hoặc cung cấp Stitch project/screen ID; sau khi requirement được duyệt và OAuth thành công, agent tự tạo project mới cho customer job.
 - Chỉ yêu cầu project/screen ID khi khách hàng chủ động chọn phương án dùng project Stitch có sẵn.
 - Nếu chưa authenticated, dừng ở `blocked` và hướng dẫn chạy `codex mcp login stitch`.
+- Khi request đã chọn Stitch, không được âm thầm thay thế bằng HTML/CSS/JavaScript hoặc tuyên bố không dùng Stitch. Nếu MCP không khả dụng, báo rõ `blocked_oauth` hoặc `blocked_external_service` và dừng trước bước thiết kế.
 
 ## Quy trình bắt buộc
 
