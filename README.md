@@ -54,9 +54,9 @@ Production không được bỏ qua Security, QA, privacy/legal hoặc rollback 
 
 Gói này không chứa connector credential. Mỗi customer job phải có resource riêng hoặc scope/tenant isolation đã được kiểm chứng cho Stitch, Vercel và database. Với Stitch, khách hàng không cần tạo hoặc gửi project link; agent tạo project mới sau OAuth và requirement approval. `DATABASE_URL`, `CRON_SECRET` và mọi secret chỉ được inject tại environment manager của môi trường tương ứng.
 
-Khi chạy trong Codex, Stitch MCP phải được bật trong chính task đang thực hiện. Nếu MCP chưa kết nối, agent phải dừng với blocker xác thực/kết nối và hướng dẫn OAuth; agent không được tự chuyển sang một landing page HTML/CSS thay thế.
+Khi chạy trong Codex, Stitch MCP phải được bật trong chính task đang thực hiện. Trong customer flow, khách hàng chỉ cần xác thực OAuth trong giao diện Codex; nếu MCP chưa kết nối, agent phải dừng với blocker xác thực/kết nối và không yêu cầu khách hàng chạy CLI, sửa config hoặc gửi project link. Agent không được tự chuyển sang một landing page HTML/CSS thay thế.
 
-Repo có `.codex/config.example.toml` làm mẫu proxy OAuth. File mẫu không tự đăng ký MCP vào Codex và không chứa project ID cá nhân. Người dùng phải chạy `npx @_davideast/stitch-mcp init --client codex --transport stdio` hoặc thêm cấu hình proxy vào Codex user config, rồi hoàn tất Google OAuth. Không dùng HTTP trực tiếp với URL Stitch nếu chưa có API key/bearer token.
+Repo có `.codex/config.example.toml` làm mẫu proxy OAuth. File mẫu không tự đăng ký MCP vào Codex và không chứa project ID cá nhân. Operator/host owner có thể dùng setup wizard `npx @_davideast/stitch-mcp init --client codex --transport stdio` hoặc thêm cấu hình proxy vào Codex user config ở bước bootstrap một lần; đây không phải là thao tác khách hàng phải thực hiện trong customer flow. Không dùng HTTP trực tiếp với URL Stitch nếu chưa có API key/bearer token.
 
 ## Trạng thái phát hành
 

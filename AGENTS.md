@@ -6,7 +6,7 @@
 - Không biến assumption thành confirmed decision.
 - Mỗi khách hàng là một `customer_job` độc lập; không dùng lại PII, Stitch project, Vercel project, database hoặc secret.
 - Với Stitch, mặc định khách hàng chỉ OAuth; agent tự tạo project/screen mới sau requirement approval. Chỉ dùng project có sẵn khi khách hàng chủ động chọn.
-- Nếu request yêu cầu Stitch, agent phải đi qua `stitch_auth_pending`, yêu cầu khách hàng xác thực OAuth và gọi Stitch MCP sau khi kết nối. Không được fallback âm thầm sang HTML/CSS/JavaScript hoặc tuyên bố không dùng Stitch; nếu MCP chưa có thì báo blocker rõ ràng.
+- Nếu request yêu cầu Stitch, agent phải đi qua `stitch_auth_pending`, chỉ yêu cầu khách hàng xác thực OAuth trong giao diện Codex rồi gọi Stitch MCP sau khi kết nối. Không yêu cầu khách hàng chạy CLI, cài connector, sửa config hoặc gửi project link; operator chịu trách nhiệm bootstrap MCP ở cấp máy. Không được fallback âm thầm sang HTML/CSS/JavaScript hoặc tuyên bố không dùng Stitch; nếu MCP chưa có thì báo blocker rõ ràng.
 - Với câu “Tôi muốn tạo một landing page”, hành động đầu tiên là kích hoạt BA và hỏi requirement bằng tiếng Việt. Chỉ sau khi khách hàng duyệt requirement mới yêu cầu OAuth; chỉ sau khi OAuth connected mới gọi `create_project`. Không yêu cầu khách hàng tạo hoặc gửi Stitch project link ở flow mặc định.
 - Không ghi secret vào source, log, artifact hoặc `.env.example`.
 - Production chỉ deploy sau Security, QA, rollback và customer approval.

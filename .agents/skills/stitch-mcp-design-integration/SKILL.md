@@ -3,11 +3,13 @@ name: stitch-mcp-design-integration
 description: Use the project-scoped Google Stitch MCP to create, inspect and export UI design context, then turn it into a traceable AIBOS design contract before implementation.
 metadata:
   owner: AIBOS UI/UX
-  version: 1.2.0
+  version: 1.3.0
   status: active
   change_history:
     - version: 1.2.0
       change: "Chuẩn hóa OAuth qua Codex UI/setup wizard và loại bỏ hướng dẫn đăng nhập MCP đã lỗi thời."
+    - version: 1.3.0
+      change: "Tách operator setup khỏi customer flow; khách hàng không được yêu cầu chạy CLI command."
 ---
 
 # Stitch MCP Design Integration
@@ -26,13 +28,13 @@ Dùng khi task yêu cầu tạo UI bằng Stitch, đọc Stitch project/screen, 
 - Authentication dùng OAuth của Codex; credential không được ghi vào repository.
 - Mặc định khách hàng không cần tạo, gửi link hoặc cung cấp Stitch project/screen ID; sau khi requirement được duyệt và OAuth thành công, agent tự tạo project mới cho customer job.
 - Chỉ yêu cầu project/screen ID khi khách hàng chủ động chọn phương án dùng project Stitch có sẵn.
-- Nếu chưa authenticated, dừng ở `blocked_oauth` và hướng dẫn khách hàng mở Codex Settings → Plugins → MCPs → Stitch → Authenticate/Connect Google OAuth. Với máy chưa cài connector, operator có thể chạy setup wizard `npx @_davideast/stitch-mcp init --client codex --transport stdio`, sau đó khởi động lại Codex. Không dùng lệnh đăng nhập MCP cũ.
+- Nếu chưa authenticated, dừng ở `blocked_oauth` và chỉ hướng dẫn khách hàng mở Codex Settings → Plugins → MCPs → Stitch → Authenticate/Connect Google OAuth. Không yêu cầu khách hàng chạy CLI command, cài connector, cấu hình file hoặc gửi project link; việc bootstrap connector ở cấp máy là trách nhiệm của operator và nằm ngoài customer flow.
 - Khi request đã chọn Stitch, không được âm thầm thay thế bằng HTML/CSS/JavaScript hoặc tuyên bố không dùng Stitch. Nếu MCP không khả dụng, báo rõ `blocked_oauth` hoặc `blocked_external_service` và dừng trước bước thiết kế.
 
 ## Quy trình bắt buộc
 
 1. Xác nhận mục tiêu design, người dùng, platform, viewport, localization và phạm vi screen.
-2. Kiểm tra tool list bằng `/mcp` hoặc `codex mcp list`.
+2. Orchestrator kiểm tra tool list nội bộ bằng `/mcp` hoặc `codex mcp list`; không đưa lệnh nội bộ này cho khách hàng.
 3. Sau khi customer job được duyệt requirement và OAuth đã connected, mặc định tạo Stitch project mới theo `customer_job_id`; ghi project ID vào working `.md`.
 4. Tạo design system, screen và variant trong project vừa tạo; ghi prompt, options và ID artifact vào working `.md`.
 5. Nếu khách hàng chọn project có sẵn, kiểm tra đúng scope rồi mới đọc/thay đổi; không lấy project của job khác làm fallback.
